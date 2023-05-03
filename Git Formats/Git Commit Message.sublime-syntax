@@ -38,8 +38,21 @@ contexts:
 ###[ COMMIT MESSAGE ]##########################################################
 
   commit-subject:
-    # first none empty none comment line is commit subject
-    - meta_scope: meta.subject.git.commit markup.heading.subject.git.commit
+    # first non-empty, non-comment line is commit subject
+    - meta_scope: >
+        meta.subject.git.commit
+        markup.heading.subject.git.commit
+    - match: (?<=.{50})(?=\S)
+      set: commit-subject-exceeded-suggested-length
+    - match: $\n?
+      set: commit-separator
+    - include: Git Common.sublime-syntax#references
+
+  commit-subject-exceeded-suggested-length:
+    - meta_scope: >
+        meta.subject.git.commit
+        markup.heading.subject.git.commit
+        invalid.illegal.too-long.git.commit
     - match: $\n?
       set: commit-separator
     - include: Git Common.sublime-syntax#references

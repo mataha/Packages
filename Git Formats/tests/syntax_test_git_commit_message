@@ -1,11 +1,12 @@
 # SYNTAX TEST "Git Commit Message.sublime-syntax"
 # <- text.git.commit-message comment.line punctuation.definition.comment
-Add git package # no comment (#403)
+Add git package to devDependencies # no comment (#403)
 # <- meta.subject.git.commit markup.heading.subject.git.commit - meta.expect-subject
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.subject.git.commit markup.heading.subject.git.commit
-#               ^^^^^^^^^^^^^^^^^^^ - comment
-#                             ^ punctuation.definition.reference.issue.git
-#                             ^^^^ meta.reference.issue.git constant.other.reference.issue.git
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.subject.git.commit markup.heading.subject.git.commit
+#                                  ^^^^^^^^^^^^^^^^^^^ - comment
+#                                                ^ punctuation.definition.reference.issue.git
+#                                                ^^^^ meta.reference.issue.git constant.other.reference.issue.git
+#                                                 ^^^^ invalid.illegal.too-long.git.commit
 -
 # <- invalid.illegal.empty-line-expected.git.commit
 The message can contain # which is no comment start
